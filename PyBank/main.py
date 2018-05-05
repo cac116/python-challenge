@@ -37,7 +37,8 @@ total_months =len(dates_data)
 total_revenue = sum(revenue_data)
 
 # Substracts Next Month's Revenue - Current Month's revenue to
-# calculate change in revenue between months over the entire period
+# calculate change in revenue from month to month over the entire period
+# we save this difference in our revenue_delta list
 for i in range(len(revenue_data)-1):
     change = revenue_data[i+1]-revenue_data[i]
     revenue_delta.append(change)
@@ -45,14 +46,17 @@ for i in range(len(revenue_data)-1):
 # We calculate the Average Revenue Change by dividing list's sum by its length
 average_revenue_change = sum(revenue_delta)/len(revenue_delta)
 
+#Greatest revenue change will be the maximum delta of our months
 greatest_increase = max(revenue_delta)
 greatest_increase_index = revenue_delta.index(max(revenue_delta))
 greatest_month = dates_data[greatest_increase_index + 1]
 
+#Greatest revenue decrease will be the minimum delta of our months
 greatest_decrease = min(revenue_delta)
 greatest_decrease_index = revenue_delta.index(min(revenue_delta))
 poorest_month = dates_data[greatest_decrease_index + 1]
 
+# Print results to terminal
 print("Financial Analysis")
 print("----------------------------")
 print("Total Months: ",total_months)
@@ -62,6 +66,7 @@ print("Greatest Increase in Revenue: ",str(greatest_month) + " ($" + str(greates
 print("Greatest Decrease in Revenue: ",str(poorest_month) + " ($" + str(greatest_decrease) + ")")
 
 # Specify the file to write to
+# Wrioting with this function works like the printing function
 output_file = open('main_results.txt','w')
 output_file.write("Financial Analysis"+ "\n")
 output_file.write("----------------------------"+ "\n")
