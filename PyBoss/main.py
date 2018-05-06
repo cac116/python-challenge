@@ -143,15 +143,14 @@ for row in range(len(full_name)):
         if state[row] == key:
             state[row] = abbrev_dict[key]
 
-
-
 with open(output_file, 'w', newline='') as csvfile:
 
-    # Initialize csv.writer
+    ### Initialize csv.writer
     csvwriter = csv.writer(csvfile, delimiter=',')
 
-    # Write the first row (column headers)
+    ## Write the first row (column headers)
     csvwriter.writerow(['Emp ID','First Name','Last Name','DOB','SSN','State'])
 
+    ## Loop to write all formated rows on our txt
     for i in range(len(emp_id)):
         csvwriter.writerow([emp_id[i],first_name[i],last_name[i],formated_dob[i],ssn[i],state[i]])
