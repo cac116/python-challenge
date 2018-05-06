@@ -46,14 +46,14 @@ for i in range(len(revenue_data)-1):
 # We calculate the Average Revenue Change by dividing list's sum by its length
 average_revenue_change = sum(revenue_delta)/len(revenue_delta)
 
-#Greatest revenue change will be the maximum delta of our months
+# Greatest revenue change will be the maximum delta of our months
 greatest_increase = max(revenue_delta)
-greatest_increase_index = revenue_delta.index(max(revenue_delta))
+greatest_increase_index = revenue_delta.index(greatest_increase)
 greatest_month = dates_data[greatest_increase_index + 1]
 
-#Greatest revenue decrease will be the minimum delta of our months
+# Greatest revenue decrease will be the minimum delta of our months
 greatest_decrease = min(revenue_delta)
-greatest_decrease_index = revenue_delta.index(min(revenue_delta))
+greatest_decrease_index = revenue_delta.index(greatest_decrease)
 poorest_month = dates_data[greatest_decrease_index + 1]
 
 # Print results to terminal
