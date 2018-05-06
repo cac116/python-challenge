@@ -77,3 +77,52 @@ state= {"AL":"Alabama","AK":"Alaska","AZ":"Arizona","AR":"Arkansas","CA":"Califo
             "OK":"Oklahoma","OR":"Oregon","PA":"Pennsylvania","RI":"Rhode Island","SC":"South Carolina",
             "SD":"South Dakota","TN":"Tennessee","TX":"Texas","UT":"Utah","VT":"Vermont","VA":"Virginia",
             "WA":"Washington","WV":"West Virginia","WI":"Wisconsin","WY":"Wyoming"}
+
+### VERSION USING DICTIONARIES
+
+# #Import the os module to create file parths accros operating systems
+# import os
+
+# #Import module to read CSVs
+# import csv
+
+# # Specify the file to read from
+# filepath = os.path.join("raw_data", "employee_data1.csv")
+# #We are storing date data on 'date' and revenue data on 'revenue'
+# emp_id = []
+# full_name = []
+# dob = []
+# formated_dob = []
+# ssn = []
+# state = []
+
+# first_name = []
+# last_name = []
+
+# dob_year = []
+# dob_month = []
+# dob_day = []
+
+# new_employee_data = []
+
+# with open(filepath) as csvfile:
+#     reader = csv.DictReader(csvfile)
+#     for row in reader:
+#         emp_id.append(row["Emp ID"])
+#         name = row["Name"]
+#         dob = row["DOB"]
+#         ssn = row["SSN"]
+#         state = row["State"]
+
+
+#         # email = f"{first_name}.{last_name}@example.com"
+#         # new_employee_data.append(
+#         #     {
+#         #         "first_name": row["first_name"],
+#         #         "last_name": row["last_name"],
+#         #         "ssn": row["ssnX"],
+#         #         "email": email
+#         #     }
+#         # )
+
+#     print(emp_id)
