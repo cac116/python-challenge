@@ -153,4 +153,8 @@ with open(output_file, 'w', newline='') as csvfile:
 
     ## Loop to write all formated rows on our txt
     for i in range(len(emp_id)):
+<<<<<<< HEAD
         csvwriter.writerow([emp_id[i],first_name[i],last_name[i],formated_dob[i],ssn[i],state[i]])
+=======
+        csvwriter.writerow([emp_id[i],first_name[i],last_name[i],formated_dob[i],ssn[i],state[i]])
+>>>>>>> 2c66e7a7f32873c69f8c7c299d4492b3bca361ec
