@@ -7,7 +7,7 @@ import csv
 # Specify the file to read from
 csvpath = os.path.join('raw_data','budget_data_1.csv')
 
-#We are storing date data on 'date' and revenue data on 'revenue'
+#We will store our raw data on 'date' and 'revenue' lists
 dates_data = []
 revenue_data = []
 revenue_delta = []
@@ -17,16 +17,16 @@ with open(csvpath, newline='') as csvfile:
     # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=',')
 
-    # Loop through csv reader and store data on dates_data and revenue_data
+    # Loop through csv reader and store raw data on dates_data and revenue_data
     for row in csvreader:
         dates_data.append(row[0])
         revenue_data.append(row[1])   
 
-# Pop out headers 'Date' and 'Revenue'
+# Pop out headers 'Date' and 'Revenue' coming from our raw data
 dates_data.pop(0)
 revenue_data.pop(0)
 
-# Convert all data stored in revenue_data to integers so we can perform operations later
+# Convert all data stored in revenue_data to integers so we can perform operations later on them
 for i in range(len(revenue_data)):
     revenue_data[i]=int(revenue_data[i])
 
@@ -38,20 +38,20 @@ total_revenue = sum(revenue_data)
 
 # Substracts Next Month's Revenue - Current Month's revenue to
 # calculate change in revenue from month to month over the entire period
-# we save this difference in our revenue_delta list
+# This will become a list of month revenue deltas saves in the revenue_delta list
 for i in range(len(revenue_data)-1):
     change = revenue_data[i+1]-revenue_data[i]
     revenue_delta.append(change)
 
-# We calculate the Average Revenue Change by dividing list's sum by its length
+# We calculate the Average Revenue Change by dividing the sum of all lists elements by the list length
 average_revenue_change = sum(revenue_delta)/len(revenue_delta)
 
-# Greatest revenue change will be the maximum delta of our months
+# Greatest revenue change will be the max of the revenue deltas
 greatest_increase = max(revenue_delta)
 greatest_increase_index = revenue_delta.index(greatest_increase)
 greatest_month = dates_data[greatest_increase_index + 1]
 
-# Greatest revenue decrease will be the minimum delta of our months
+# Greatest revenue change will be the min of the revenue deltas
 greatest_decrease = min(revenue_delta)
 greatest_decrease_index = revenue_delta.index(greatest_decrease)
 poorest_month = dates_data[greatest_decrease_index + 1]
@@ -75,5 +75,4 @@ output_file.write("Total Revenue: $" + str(total_revenue) + "\n")
 output_file.write("Average Revenue Change: $" + str(average_revenue_change) + "\n")
 output_file.write("Greatest Increase in Revenue: " + str(greatest_month) + " ($" + str(greatest_increase) + ")"+ "\n")
 output_file.write("Greatest Decrease in Revenue: " + str(poorest_month) + " ($" + str(greatest_decrease) + ")")
-
 output_file.close()
