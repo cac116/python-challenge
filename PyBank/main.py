@@ -5,7 +5,7 @@ import os
 import csv
 
 # Specify the file to read from
-csvpath = os.path.join('raw_data','budget_data_1.csv')
+csvpath = os.path.join('raw_data','budget_data_2.csv')
 
 #We will store our raw data on 'date' and 'revenue' lists
 dates_data = []
@@ -75,8 +75,4 @@ output_file.write("Total Revenue: $" + str(total_revenue) + "\n")
 output_file.write("Average Revenue Change: $" + str(average_revenue_change) + "\n")
 output_file.write("Greatest Increase in Revenue: " + str(greatest_month) + " ($" + str(greatest_increase) + ")"+ "\n")
 output_file.write("Greatest Decrease in Revenue: " + str(poorest_month) + " ($" + str(greatest_decrease) + ")")
-<<<<<<< HEAD
 output_file.close()
-=======
-output_file.close()
->>>>>>> 2c66e7a7f32873c69f8c7c299d4492b3bca361ec
